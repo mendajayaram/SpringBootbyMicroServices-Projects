@@ -1,0 +1,5 @@
+package com.nt.jai.service;
+
+public class MessageConverter {
+
+}

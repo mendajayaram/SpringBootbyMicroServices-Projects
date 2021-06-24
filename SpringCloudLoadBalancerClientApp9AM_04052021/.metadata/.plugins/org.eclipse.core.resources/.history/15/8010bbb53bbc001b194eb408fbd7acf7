@@ -1,0 +1,24 @@
+package com.nt.jai.model;
+
+import lombok.Data;
+
+import lombok.Data;
+
+@Data
+public class CircInfo {
+
+	private Integer id;
+
+	private String name;
+
+	private String country;
+
+	private Integer score;
+
+	private Integer matchs;
+
+	private  String  result;
+
+
+
+}

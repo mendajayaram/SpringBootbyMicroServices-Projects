@@ -1,0 +1,21 @@
+package com.nt.jai.service;
+
+import java.util.Optional;
+
+import com.nt.jai.model.User;
+
+public class UserServiceImpl implements IUserService {
+
+	@Override
+	public Integer saveUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User> findUserbyName(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

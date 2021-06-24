@@ -1,0 +1,17 @@
+package com.nt.jai;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+
+@EnableZuulProxy
+@EnableEurekaClient
+
+public class SpringCloudZuulProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCloudZuulProjectApplication.class, args);
+	}
+
+}

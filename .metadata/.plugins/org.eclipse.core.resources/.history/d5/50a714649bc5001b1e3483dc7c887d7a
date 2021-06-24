@@ -1,0 +1,5 @@
+package com.nt.jai.controller;
+
+public class PaymentRestController {
+
+}

@@ -1,0 +1,5 @@
+package com.nt.jai.consumer;
+
+public class MessageConsumer {
+
+}

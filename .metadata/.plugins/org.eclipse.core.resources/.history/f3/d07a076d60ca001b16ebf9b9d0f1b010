@@ -1,0 +1,45 @@
+package com.nt.jai.service.imp;
+
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nt.jai.model.User;
+import com.nt.jai.repo.UserRepository;
+
+@Service
+
+public class UserDetailsServiceImpl implements UserDetailsService {
+	@Autowired
+	private UserRepository repo;
+
+	public UserDetails loadUserByUsername(String username) 
+			throws UsernameNotFoundException {
+		//goto db and get Model class object
+		Optional<User> opt = repo.findByUserMail(username);
+		if(opt.isEmpty()) {
+			throw new UsernameNotFoundException("User not exist !!");
+		} else {
+			// read object if exist
+			User user = opt.get();
+			//user roles from DB
+			Set<String> roles = user.getUserRoles();
+			//converting role into Spring GrantedAuthority
+			Set<GrantedAuthority> authorities = new HashSet<>();
+			for(String r:roles) {
+				authorities.add(new
+						SimpleGrantedAuthority(r));
+			}
+			//converting into Spring Security user object
+			return new
+					org.springframework.security.core.userdetails
+					.User(
+							username, 
+							user.getUserPwd(), 
+							authorities);
+		}
+
+	}
